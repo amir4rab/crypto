@@ -3,7 +3,46 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  chartsOption: {
+    animation: {
+      duration: 0
+    },
+    hover: {
+      animationDuration: 0
+    },
+    responsiveAnimationDuration: 0,
+    elements: {
+      line: {
+        tension: 0
+      }
+    },
+    legend: {
+      display: false,
+    },
+    title: {
+      display: false,
+    },
+    tooltips: {
+      enabled: false
+    },
+    scales: {
+      xAxes: [{
+        display: false
+      }],
+      yAxes: [{
+        display: false
+      }],
+    },
+    layout: { 
+      padding: {
+        top: 0,
+        left: 5,
+        right: 5,
+        bottom: 0
+      }
+    }
+  }
 };
 
 /*

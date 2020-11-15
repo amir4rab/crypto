@@ -1,0 +1,66 @@
+@import '../../../style/style.scss';
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+
+    background-color: $black-light;
+
+    width: 35vw;
+    height: 40vw;
+
+    padding: 1rem 1rem;
+    border-radius: 1em;
+
+    margin-right: 2.5vw;
+
+    overflow: hidden;
+    .left-col {
+        img {
+            width: 50%;
+            max-height: 20vw;
+            object-fit: scale-down;
+        }
+        .title {
+            font-weight: 700;
+            padding: .5rem 0;
+        }
+        .sub-title {
+            font-size: .8rem;
+            opacity: .5;
+            padding-bottom: .5rem;
+        }
+        .changes {
+            font-size: .8rem;
+            color: $green-light;
+        }
+    }
+    .right-col {
+        display: none;
+        width: 60%;
+        canvas{
+            object-fit: scale-down;
+        }
+    }
+}
+
+@media ( min-width: $bp-1 ) {
+    .card {
+        width: 30vw;
+        height: 15vw;
+
+        max-width: 450px;
+        max-height: 225px;
+    
+        padding: 2rem 2rem;
+    
+        margin-right: 5vw;
+        .left-col {
+            width: 40%;
+        }
+        .right-col {
+            display: block;
+        }
+    }
+}
