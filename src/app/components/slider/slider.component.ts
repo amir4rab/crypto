@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { coinData } from '../../types/CoinData.type';
 
 @Component({
   selector: 'app-slider',
@@ -6,20 +7,20 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit, AfterViewInit {
+  @Input() coinDataArr: coinData[];
 
-  sliderId: string = "slider" + (Math.random() * 10000).toFixed(0);
-
-  el:HTMLElement;
+  sliderId: string;
+  el: HTMLElement;
   keyDown: Boolean = false;
   startX: number;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    // console.log(this.sliderId);
+  constructor() { 
+    this.sliderId = "slider" + (Math.random() * 10000).toFixed(0);
   }
 
-  ngAfterViewInit(): void{
+  ngOnInit(): void {  }
+
+  ngAfterViewInit(): void {
     this.el = document.getElementById(this.sliderId) as HTMLElement;
   }
 
@@ -29,6 +30,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   }
 
   MoveFn(event: MouseEvent): void {
-    if( this.keyDown ) this.el.scrollLeft = -(event.pageX - this.startX);
+    event.preventDefault();
+    if( this.keyDown ) this.el.scrollLeft = (-(event.pageX - this.startX));
   }
 }

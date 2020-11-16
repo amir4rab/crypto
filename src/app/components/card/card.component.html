@@ -1,19 +1,19 @@
 <div class="card">
     <div class="left-col">
-        <img lazy src="https://cdn.coinranking.com/bOabBYkcX/bitcoin_btc.svg" alt="">
+        <img lazy [src]="coinData.iconUrl" alt="">
         <div class="title">
-            Bitcoin
+            {{coinData.name}}
         </div>
         <div class="sub-title">
-            13377.40
+            {{coinData.price}}
         </div>
         <div class="changes">
-            +3%
+            {{coinData.change}}%
         </div>
     </div>
     <div class="right-col">
         <div class="chart">
-            <canvas id="btcCanvas"></canvas>
+            <canvas [id]="chartId"></canvas>
         </div>
     </div>
 </div>

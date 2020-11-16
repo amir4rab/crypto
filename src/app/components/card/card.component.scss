@@ -20,7 +20,7 @@
     .left-col {
         img {
             width: 50%;
-            max-height: 20vw;
+            max-height: 10vw;
             object-fit: scale-down;
         }
         .title {
@@ -39,7 +39,7 @@
     }
     .right-col {
         display: none;
-        width: 60%;
+        width: 50%;
         canvas{
             object-fit: scale-down;
         }
@@ -55,6 +55,25 @@
         max-height: 225px;
     
         padding: 2rem 2rem;
+    
+        margin-right: 5vw;
+        .left-col {
+            width: 40%;
+        }
+        .right-col {
+            display: block;
+        }
+    }
+}
+@media ( min-width: $bp-2 ) {
+    .card {
+        width: 30vw;
+        height: 20vw;
+
+        max-width: 450px;
+        max-height: 225px;
+    
+        padding: 1rem 1rem;
     
         margin-right: 5vw;
         .left-col {

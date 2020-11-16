@@ -8,9 +8,6 @@
         </div>
     </div>
     <div class="slider__inner" [id]="sliderId" (mousedown)="dragFn($event,true,true)" (mouseup)="dragFn($event, false)" (mouseleave)="dragFn($event, false)" (mousemove)="MoveFn($event)">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        <app-card *ngFor="let coinData of coinDataArr" [coinData]="coinData"></app-card>
     </div>
 </div>
