@@ -57,3 +57,11 @@
         scrollbar-width: thin;
     }
 }
+
+@media ( min-width: $bp-1 ){
+    .slider__inner {
+        &::-webkit-scrollbar {
+            height: .5rem;
+        }
+    }
+}

@@ -8,6 +8,13 @@ import { coinData } from '../../types/CoinData.type';
 })
 export class SliderComponent implements OnInit, AfterViewInit {
   @Input() coinDataArr: coinData[];
+  @Input() settings: {
+    title: string,
+    subTitle: string,
+  } = {
+    title: "",
+    subTitle: "See all",
+  };
 
   sliderId: string;
   el: HTMLElement;
