@@ -13,10 +13,8 @@ export class CardComponent implements OnInit, AfterViewInit {
   @Input() coinData: coinData;
   dataArr: number[];
   chartId = (Math.random() * 100000).toFixed(0);
-  constructor(  ) { 
-    
-    console.log(this.chartId);
-  }
+  
+  constructor(  ){ }
 
   ngOnInit(): void {
     this.dataArr = this.strArrToNumArr(this.coinData.history);
@@ -26,7 +24,7 @@ export class CardComponent implements OnInit, AfterViewInit {
     try {
       this.makeChart();
     } catch {
-      console.warn('el not found!!!')
+      console.warn('el not found!!!');
     }
   }
 

@@ -10,6 +10,10 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ChartRowComponent } from './components/chart-row/chart-row.component';
+import { ChartScreenComponent } from './components/chart-screen/chart-screen.component';
+import { PriceShortenerDirective } from './directives/price-shortener.directive';
+import { PriceShortenerPipe } from './pipes/price-shortener.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { AboutComponent } from './pages/about/about.component';
     SliderComponent,
     ChartsComponent,
     SettingsComponent,
-    AboutComponent
+    AboutComponent,
+    ChartRowComponent,
+    ChartScreenComponent,
+    PriceShortenerDirective,
+    PriceShortenerPipe
   ],
   imports: [
     BrowserModule,

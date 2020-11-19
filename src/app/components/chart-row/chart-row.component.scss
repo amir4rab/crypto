@@ -1,0 +1,65 @@
+@import '../../../style/style.scss';
+.chart-row{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    height: 17.5vh;
+
+    max-width: 100%;
+    overflow: hidden;
+    
+    &__left{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        img{
+            max-height: 3.5rem;
+            max-width: 3.5rem;
+        }
+        .details{
+            &__main{
+                font-weight: 700;
+            }
+            &__sub{
+                font-weight: 500;
+                opacity: .75;
+                .changes{
+                    &.pos{
+                        color: $green-light;
+                    }
+                    &.neg{
+                        color: $red-light;
+                    }
+                }
+            }
+        }
+    }
+
+    // &__chart, &__mid, &__right, &__left{
+    //     flex-grow: 1;
+    // }
+    &__chart, &__mid, &__right, &__left.details{
+        font-size: .8rem;
+        font-weight: 500;
+        opacity: .75;
+    }
+
+    &__chart{
+        canvas{
+            height: 15vh;
+            width: 30vw;
+        }
+    }
+
+    &__mid{
+        display: none;
+    }
+
+    &__right{
+
+    }
+}

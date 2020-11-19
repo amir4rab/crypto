@@ -22,7 +22,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
   startX: number;
 
   constructor() { 
-    this.sliderId = "slider" + (Math.random() * 10000).toFixed(0);
+    this.sliderId = "slider" + (Math.random() * 100000).toFixed(0);
   }
 
   ngOnInit(): void {  }
