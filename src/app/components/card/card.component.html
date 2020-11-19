@@ -7,7 +7,7 @@
         <div class="sub-title">
             {{coinData.price}}
         </div>
-        <div class="changes">
+        <div class="changes" [ngClass]="coinData.change > 0 ? 'pos': 'neg' ">
             {{coinData.change}}%
         </div>
     </div>

@@ -33,8 +33,8 @@ export class CardComponent implements OnInit, AfterViewInit {
   makeChart(): void{
     const canvas = (document.getElementById(this.chartId) as HTMLCanvasElement).getContext('2d');
 
-    const bgColor = 'rgba(63, 63, 63, 0)';
-    const color = 'rgba(47, 244, 102, 1)';
+    const bgColor = 'rgba(0, 0, 0, 0)';
+    const color =  this.coinData.change > 0 ? 'rgba(47, 244, 102, 1)' : 'rgba(237, 28, 36, 1)';
 
     const myChart = new Chart(canvas, {
       type: 'line',

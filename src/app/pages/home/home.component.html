@@ -1,7 +1,27 @@
-<app-slider 
+<div class="slider">
+    <app-slider 
+        [settings]="{
+            title: 'Top cryptos',
+            subTitle: 'See all'
+        }"
+        [coinDataArr]= "topCoinsDataArr"
+    ></app-slider>
+</div>
+<div class="slider">
+    <app-slider 
     [settings]="{
-        title: 'Top cryptos',
+        title: 'Top gainers',
         subTitle: 'See all'
     }"
-    [coinDataArr]= "topCoinData"
+    [coinDataArr]= "topGainersCoinsArr"
 ></app-slider>
+</div>
+<div class="slider">
+    <app-slider 
+    [settings]="{
+        title: 'Top losers',
+        subTitle: 'See all'
+    }"
+    [coinDataArr]= "topLosersCoinsArr"
+    ></app-slider>
+</div>

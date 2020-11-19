@@ -3,30 +3,30 @@
         Crypto
     </div>
     <div class="navbar-top__links">
-        <a class="active">Home</a>
-        <a >Charts</a>
-        <a >Settings</a>
-        <a >About</a>
+        <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+        <a [routerLink]="['/charts']" routerLinkActive="active">Charts</a>
+        <a [routerLink]="['/settings']" routerLinkActive="active">Settings</a>
+        <a [routerLink]="['/about']" routerLinkActive="active">About</a>
     </div>
 </nav>
 <nav class="navbar-bottom">
     <div class="navbar-bottom__links">
-        <a id="home" class="active">
+        <a id="home" [routerLink]="['/home']" routerLinkActive="active">
             <img src="../../assets/icons/Home.svg" alt="">
         </a>
     </div>
     <div class="navbar-bottom__links">
-        <a id="charts">
+        <a id="charts" [routerLink]="['/charts']" routerLinkActive="active">
             <img src="../../assets/icons/Charts.svg" alt="">
         </a>
     </div>
     <div class="navbar-bottom__links">
-        <a id="Settings">
+        <a id="Settings" [routerLink]="['/settings']" routerLinkActive="active">
             <img src="../../assets/icons/Settings.svg" alt="">
         </a>
     </div>
     <div class="navbar-bottom__links">
-        <a id="about">
+        <a id="about" [routerLink]="['/about']" routerLinkActive="active">
             <img src="../../assets/icons/About.svg" alt="">
         </a>
     </div>
