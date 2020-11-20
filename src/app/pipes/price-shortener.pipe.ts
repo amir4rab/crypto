@@ -17,7 +17,9 @@ export class PriceShortenerPipe implements PipeTransform {
       outputString = ( nValue / 1000000 ).toFixed(0) + ' m';
     } else if ( nValue > 1000 ) {
       outputString = ( nValue / 1000 ).toFixed(0) + ' k';
-    } 
+    } else {
+      outputString = nValue.toFixed(2).toString();
+    }
 
     return outputString;
   }

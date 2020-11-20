@@ -1,33 +1,63 @@
 @import '../../../style/style.scss';
 .chart-row{
 
+    padding: .25rem .5rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
 
-    height: 17.5vh;
+    height: 5rem;
 
     max-width: 100%;
     overflow: hidden;
     
     &__left{
+        flex-grow: 1;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        align-content: center;
+        overflow: hidden;
         img{
-            max-height: 3.5rem;
-            max-width: 3.5rem;
+            object-fit: contain;
+            max-height: 3rem;
+            max-width: 3rem;
         }
         .details{
+            width: 35%;
+            flex-grow: 1;
+            height: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            align-content: flex-start;
+            flex-direction: column;
+            padding-left: 1rem;
             &__main{
+                display: block;
                 font-weight: 700;
+                &.mid{
+                    font-size: .8rem;
+                }
+                &.long{
+                    font-size: .6rem;
+                }
             }
             &__sub{
+                font-size: .8rem;
                 font-weight: 500;
                 opacity: .75;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+                p{
+                    display: none;
+                }
                 .changes{
+                    display: block;
+                    font-weight: 700;
                     &.pos{
                         color: $green-light;
                     }
@@ -39,19 +69,28 @@
         }
     }
 
-    // &__chart, &__mid, &__right, &__left{
-    //     flex-grow: 1;
-    // }
+    &__chart, &__right, &__left{
+        height: 3rem;
+    }
+
     &__chart, &__mid, &__right, &__left.details{
-        font-size: .8rem;
+        font-size: .7rem;
         font-weight: 500;
         opacity: .75;
     }
 
     &__chart{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        height: 100% !important;
+        width: 45% !important;
         canvas{
-            height: 15vh;
-            width: 30vw;
+            display: none;
+            height: auto !important;
+            width: 100% !important;
+            max-height: 100% !important;
         }
     }
 
@@ -60,6 +99,14 @@
     }
 
     &__right{
-
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        align-content: space-between;
+        flex-direction: column;
+        .sec{
+            display: none;
+        }
     }
 }

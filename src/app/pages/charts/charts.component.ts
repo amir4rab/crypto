@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./charts.component.scss']
 })
 export class ChartsComponent implements OnInit {
-  coinDataArr: coinData[] = environment.allCoinData.slice(0, 1) as coinData[];
+  coinDataArr: coinData[] = environment.allCoinData as coinData[];
   constructor() { 
 
   }

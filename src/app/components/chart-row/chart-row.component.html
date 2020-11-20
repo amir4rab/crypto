@@ -2,11 +2,11 @@
     <div class="chart-row__left">
         <img [src]="coinData.iconUrl" alt="">
         <div class="details">
-            <div class="details__main">
+            <div class="details__main" [ngClass]=" coinData.name.length < 8 ? '-' : coinData.name.length < 15 ? 'mid' : 'long' ">
                 {{coinData.name}}
             </div>
             <div class="details__sub">
-                <p>{{coinData.symbol}}</p>
+                <p class="symbol">{{coinData.symbol}}</p>
                 <p class="changes" [ngClass]=" coinData.change > 0 ? 'pos' : 'neg' ">{{coinData.change}}%</p>
             </div>
 
@@ -16,11 +16,11 @@
         <canvas [id]="chartID"></canvas>
     </div>
     <div class="chart-row__mid">
-        <p>Volume: {{coinData.volume | priceShortener}}</p>
+        <p>Volume: {{coinData.volume | priceShortener | currencySymbols }}</p>
         <p>Rank: {{coinData.rank}}</p>
     </div>
     <div class="chart-row__right">
-        <p class="main">{{coinData.price | priceShortener}}</p>
-        <p>MCap: {{coinData.marketCap | priceShortener}}</p>
+        <p class="main">{{coinData.price | priceShortener | currencySymbols}}</p>
+        <p class="sec">Mc: {{coinData.marketCap | priceShortener | currencySymbols}}</p>
     </div>
 </div>

@@ -14,6 +14,7 @@ import { ChartRowComponent } from './components/chart-row/chart-row.component';
 import { ChartScreenComponent } from './components/chart-screen/chart-screen.component';
 import { PriceShortenerDirective } from './directives/price-shortener.directive';
 import { PriceShortenerPipe } from './pipes/price-shortener.pipe';
+import { CurrencySymbolsPipe } from './pipes/currency-symbols.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PriceShortenerPipe } from './pipes/price-shortener.pipe';
     ChartRowComponent,
     ChartScreenComponent,
     PriceShortenerDirective,
-    PriceShortenerPipe
+    PriceShortenerPipe,
+    CurrencySymbolsPipe
   ],
   imports: [
     BrowserModule,
