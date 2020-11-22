@@ -10,13 +10,13 @@ export class PriceShortenerPipe implements PipeTransform {
     let outputString: string;
 
     if ( nValue > 1000000000000 ) {
-      outputString = ( nValue / 1000000000000 ).toFixed(0) + ' t';
+      outputString = ( nValue / 1000000000000 ).toFixed(0) + 'T';
     } else if ( nValue > 1000000000 ) {
-      outputString = ( nValue / 1000000000 ).toFixed(0) + ' m';
+      outputString = ( nValue / 1000000000 ).toFixed(0) + 'B';
     } else if ( nValue > 1000000 ) {
-      outputString = ( nValue / 1000000 ).toFixed(0) + ' m';
+      outputString = ( nValue / 1000000 ).toFixed(0) + 'M';
     } else if ( nValue > 1000 ) {
-      outputString = ( nValue / 1000 ).toFixed(0) + ' k';
+      outputString = ( nValue / 1000 ).toFixed(0) + 'K';
     } else {
       outputString = nValue.toFixed(2).toString();
     }

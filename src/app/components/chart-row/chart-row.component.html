@@ -13,7 +13,9 @@
         </div>
     </div>
     <div class="chart-row__chart">
-        <canvas [id]="chartID"></canvas>
+        <div class="inner">
+            <canvas #canvasEl ></canvas>
+        </div>
     </div>
     <div class="chart-row__mid">
         <p>Volume: {{coinData.volume | priceShortener | currencySymbols }}</p>

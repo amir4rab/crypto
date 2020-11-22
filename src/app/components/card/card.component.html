@@ -5,7 +5,7 @@
             {{coinData.name}}
         </div>
         <div class="sub-title">
-            {{coinData.price}}
+            {{coinData.price | priceShortener | currencySymbols }}
         </div>
         <div class="changes" [ngClass]="coinData.change > 0 ? 'pos': 'neg' ">
             {{coinData.change}}%
@@ -13,7 +13,7 @@
     </div>
     <div class="right-col">
         <div class="chart">
-            <canvas [id]="chartId"></canvas>
+            <canvas #canvasEl></canvas>
         </div>
     </div>
 </div>

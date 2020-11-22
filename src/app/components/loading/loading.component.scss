@@ -1,0 +1,36 @@
+@import '../../../style/style.scss';
+.loading{
+    width: 5rem;
+    height: 5rem;
+
+    border-radius: 50%;
+    border: .5em solid transparent;
+
+    opacity: .75;
+
+    // transition: rotater .3s ease-in-out;
+
+    // transform: rotate(180);
+
+    &.light{
+        border-left-color: $white-light;
+        border-right-color: $white-light;
+    }
+    &.dark{
+        border-left-color: $black-mid;
+        border-right-color: $black-mid;
+    }
+
+    @keyframes rotater {
+        from {
+            transform: rotateZ(0);
+            //opacity: 0;
+        }
+        to {
+            transform: rotateZ(360deg);
+            //opacity: 1;
+        }
+    }
+
+    animation: rotater 1.25s cubic-bezier(0.33, 1, 0.68, 1) infinite forwards;
+}

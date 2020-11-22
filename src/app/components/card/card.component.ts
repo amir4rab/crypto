@@ -1,8 +1,7 @@
-import { Chart } from 'Chart.js';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { AfterViewInit, Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Input } from '@angular/core';
 import { coinData } from 'src/app/types/CoinData.type';
+import { ChartGenService } from 'src/app/utilities-services/chart-gen.service';
 
 @Component({
   selector: 'app-card',
@@ -11,56 +10,13 @@ import { coinData } from 'src/app/types/CoinData.type';
 })
 export class CardComponent implements OnInit, AfterViewInit {
   @Input() coinData: coinData;
-  dataArr: number[];
-  chartId = (Math.random() * 100000).toFixed(0);
+  @ViewChild('canvasEl') canvasEl : ElementRef;
   
-  constructor(  ){ }
+  constructor( private chartGen: ChartGenService ){ }
 
-  ngOnInit(): void {
-    this.dataArr = this.strArrToNumArr(this.coinData.history);
-  }
+  ngOnInit(): void {  }
 
   ngAfterViewInit(): void {
-    try {
-      this.makeChart();
-    } catch {
-      console.warn('el not found!!!');
-    }
-  }
-
-  makeChart(): void{
-    const canvas = (document.getElementById(this.chartId) as HTMLCanvasElement).getContext('2d');
-
-    const bgColor = 'rgba(0, 0, 0, 0)';
-    const color =  this.coinData.change > 0 ? 'rgba(47, 244, 102, 1)' : 'rgba(237, 28, 36, 1)';
-
-    const myChart = new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: this.dataArr,
-        datasets: [{
-          data: this.dataArr,
-          borderColor: [
-            color
-          ],
-          backgroundColor:[
-            bgColor
-          ],
-          pointStyle: 'line',
-          pointRadius: 0,
-          borderWidth: 2.5,
-          borderCapStyle: 'round',
-        }]
-      },
-      options: environment.chartsOption
-    });
-  }
-
-  strArrToNumArr( inputArr: string[] ): number[]{
-    const outputArr: number[] = [];
-
-    inputArr.forEach(str => outputArr.push(parseInt(str)));
-
-    return outputArr;
+    this.chartGen.initChart( this.canvasEl.nativeElement, this.chartGen.strArrToNumArr(this.coinData.history) , this.coinData.change );
   }
 }

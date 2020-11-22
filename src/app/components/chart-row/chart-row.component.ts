@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { from } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { coinData } from 'src/app/types/CoinData.type';
 import { ChartGenService } from '../../utilities-services/chart-gen.service';
 
@@ -11,14 +10,13 @@ import { ChartGenService } from '../../utilities-services/chart-gen.service';
 export class ChartRowComponent implements OnInit, AfterViewInit {
   @Input() coinData: coinData;
 
-  chartID: string;
+  @ViewChild('canvasEl') canvasEl : ElementRef;
+  
   constructor( private chartGen: ChartGenService ) { }
 
-  ngOnInit(): void {
-    this.chartID = (Math.random() * 100000).toFixed(0);
-  }
+  ngOnInit(): void {   }
   
   ngAfterViewInit(): void {
-    this.chartGen.initChart(this.chartID, this.chartGen.strArrToNumArr(this.coinData.history), this.coinData.change);
+    this.chartGen.initChart( this.canvasEl.nativeElement , this.chartGen.strArrToNumArr(this.coinData.history) , this.coinData.change );
   }
 }

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule  } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { ChartScreenComponent } from './components/chart-screen/chart-screen.com
 import { PriceShortenerDirective } from './directives/price-shortener.directive';
 import { PriceShortenerPipe } from './pipes/price-shortener.pipe';
 import { CurrencySymbolsPipe } from './pipes/currency-symbols.pipe';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import { CurrencySymbolsPipe } from './pipes/currency-symbols.pipe';
     ChartScreenComponent,
     PriceShortenerDirective,
     PriceShortenerPipe,
-    CurrencySymbolsPipe
+    CurrencySymbolsPipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

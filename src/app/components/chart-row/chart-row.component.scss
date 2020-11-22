@@ -1,7 +1,7 @@
 @import '../../../style/style.scss';
 .chart-row{
 
-    padding: .25rem .5rem;
+    margin: .25rem .5rem;
 
     display: flex;
     justify-content: space-between;
@@ -81,16 +81,15 @@
 
     &__chart{
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         align-content: center;
-        height: 100% !important;
-        width: 45% !important;
-        canvas{
-            display: none;
-            height: auto !important;
-            width: 100% !important;
-            max-height: 100% !important;
+        width: 45%;
+        max-height: 3rem;
+        .inner{
+            max-height: 100%;
+            height: 100%;
+            max-width: 80%;
         }
     }
 
@@ -107,6 +106,95 @@
         flex-direction: column;
         .sec{
             display: none;
+        }
+    }
+}
+
+@media ( min-width: $bp-1 ) {
+    .chart-row{
+
+        margin: 1.5rem 1rem;
+        height: 7.5rem;
+        
+        &__left{
+            img{
+                object-fit: contain;
+                max-height: 5rem;
+                max-width: 5rem;
+                height: 5rem;
+                width: 5rem;
+            }
+            .details{
+                width: 30%;
+                flex-grow: 1;
+                height: 4rem;
+                padding-left: 1.5rem;
+                &__main{
+                    font-size: 1.5rem;
+                    &.mid{
+                        font-size: 1.25rem;
+                    }
+                    &.long{
+                        font-size: 1rem;
+                    }
+                }
+                &__sub{
+                    font-size: 1rem;
+                    p{
+                        display: block;
+                    }
+                    .changes{
+                        padding-left: 1rem;
+                    }
+                }
+            }
+        }
+    
+        &__chart, &__right, &__left{
+            height: 7.5rem;
+        }
+    
+        &__chart, &__mid, &__right, &__left.details{
+            font-size: 1rem;
+        }
+    
+        &__chart{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 40%;
+            max-height: 7.5rem;
+            .inner{
+                max-height: 5rem !important;
+                height: 5rem !important;
+                max-width: 10vw !important;
+                width: 10rem !important;
+            }
+        }
+    
+        &__mid{
+            display: block;
+            height: 5rem;
+            width: 15%;
+            display: flex;
+            justify-content: space-between;
+            align-items: space-between;
+            align-content: space-between;
+            flex-direction: column;
+        }
+    
+        &__right{
+            height: 5rem;
+            width: 15%;
+            display: flex;
+            justify-content: space-between;
+            align-items: space-between;
+            align-content: space-between;
+            flex-direction: column;
+            .sec{
+                display: block;
+            }
         }
     }
 }

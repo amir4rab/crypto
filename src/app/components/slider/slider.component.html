@@ -4,7 +4,9 @@
             {{settings.title}}
         </div>
         <div class="sub-title">
-            {{settings.subTitle}}
+            <a [routerLink]="['/charts']">
+                {{settings.subTitle}}
+            </a>
         </div>
     </div>
     <div class="slider__inner" [id]="sliderId" (mousedown)="dragFn($event,true,true)" (mouseup)="dragFn($event, false)" (mouseleave)="dragFn($event, false)" (mousemove)="MoveFn($event)">

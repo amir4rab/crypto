@@ -17,6 +17,10 @@
         }
         .sub-title {
             color: $blue-mid;
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
         }
     }
 
@@ -54,6 +58,10 @@
         }
 
         scrollbar-width: thin;
+
+        &:active{
+            cursor: grabbing;
+        }
     }
 }
 

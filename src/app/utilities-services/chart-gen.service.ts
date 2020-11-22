@@ -9,13 +9,13 @@ export class ChartGenService {
 
   constructor() { }
 
-  initChart( chartId: string, coinPricesArr: number[] , priceChanges: number ): void{
-    const canvas = (document.getElementById(chartId) as HTMLCanvasElement).getContext('2d');
+  initChart( chartEl: HTMLCanvasElement, coinPricesArr: number[] , priceChanges: number ): void{
+    //const canvas = (document.getElementById(chartId) as HTMLCanvasElement).getContext('2d');
 
     const bgColor = 'rgba(0, 0, 0, 0)';
     const color =  priceChanges > 0 ? 'rgba(47, 244, 102, 1)' : 'rgba(237, 28, 36, 1)';
 
-    const myChart = new Chart(canvas, {
+    const myChart = new Chart(chartEl, {
       type: 'line',
       data: {
         labels: coinPricesArr,
@@ -36,6 +36,7 @@ export class ChartGenService {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        
         animation: {
           duration: 0
         },
@@ -65,7 +66,7 @@ export class ChartGenService {
             display: false
           }],
         },
-        layout: { 
+        layout: {
           padding: {
             top: 0,
             left: 10,

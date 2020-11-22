@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { coinData } from './types/CoinData.type';
+import { CoinrankingapiService } from './api-services/coinrankingapi.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,7 @@ import { coinData } from './types/CoinData.type';
 })
 export class AppComponent {
   title = 'crypto';
+  constructor( private coinrankingapi: CoinrankingapiService ) { 
+    this.coinrankingapi.getData();
+  }
 }
