@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { CoinrankingapiRes } from '../types/coinrankingapi.type';
 import { currency } from '../types/currency.type';
 
 @Injectable({
@@ -6,12 +8,19 @@ import { currency } from '../types/currency.type';
 })
 export class StateManagerService {
 
-  //**  currency methods : start  **//
+  //**  Api Settings : start  **//
+
   private _currency: currency = {
-      symbol: '€',
-      name: 'EUR'
+    symbol: '€',
+    name: 'EUR'
   };
-  
+
+  historySpan: 'daily' | 'weekly' | 'monthly' = 'daily';
+
+  //**  Api Settings : end  **//
+
+  //*?  currency methods : start  **//
+
   get currencySymbol ( ) : string {
     return this._currency.symbol;
   };
@@ -46,7 +55,18 @@ export class StateManagerService {
     }
   };
 
-  //**  currency methods : end  **//
+  //*?  currency methods : end  **//
   
+
+  //**  Api methods : start  **//
+
+  apiDataLoded: boolean = false;
+
+  apiloading: boolean = false;
+
+  apiLoaded: Subject<CoinrankingapiRes> = new Subject<CoinrankingapiRes>();
+
+  //**  Api methods : end  **//
+
   constructor() { }
 }

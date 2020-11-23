@@ -1,4 +1,5 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { CoinrankingapiService } from 'src/app/api-services/coinrankingapi.service';
 import { coinData } from 'src/app/types/CoinData.type';
 import { environment } from '../../../environments/environment';
 
@@ -7,7 +8,8 @@ import { environment } from '../../../environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class HomeComponent implements OnInit {
+  coinsArr: coinData[] = [];
   topCoinsDataArr: coinData[] = [];
   sortedCoinsArr: coinData[] = [];
   topGainersCoinsArr: coinData[] = [];
@@ -15,16 +17,17 @@ export class HomeComponent implements OnInit, AfterViewInit, AfterContentInit {
 
   pageLoaded: boolean = false;
 
-  constructor() {  }
+  constructor( private coinrankingapi: CoinrankingapiService ) {  }
   
   ngOnInit(): void {
-    this.topCoinsDataArr = environment.allCoinData.slice(0, 10) as coinData[];
+    this.coinrankingapi.getData().subscribe( res => {
+      this.coinsArr = res.data.coins;
+      this.initCharts();
+    });
   }
 
-  ngAfterViewInit(): void {
-  }
-  
-  ngAfterContentInit(): void {
+  initCharts(): void {
+    this.topCoinsDataArr =  this.coinsArr.slice(0, 10) as coinData[];
     this.sortedCoinsArr = (environment.allCoinData.sort(function(a, b){
       if ( a.change > b.change ) {
         return -1;

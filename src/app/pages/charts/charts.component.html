@@ -1,4 +1,10 @@
-<!-- <app-chart-row *ngFor="let coinData of coinDataArr" [coinData]="coinData"></app-chart-row> -->
-<app-chart-row *ngFor="let coinData of coinDataArrB1" [coinData]="coinData"></app-chart-row>
-<app-chart-row *ngFor="let coinData of coinDataArrB2" [coinData]="coinData"></app-chart-row>
-<app-chart-row *ngFor="let coinData of coinDataArrB3" [coinData]="coinData"></app-chart-row>
+<div class="wrap" [ngClass]="loading === false ? 'active' : 'deactive'">
+    <div class="chart-row" *ngFor="let coinData of coinDataArrRef">
+        <app-chart-row [coinData]="coinData"></app-chart-row>
+    </div>
+</div>
+<div class="loading" [ngClass]="loading === true ? 'active' : 'deactive'">
+    <div>
+        <app-loading></app-loading>
+    </div>
+</div>

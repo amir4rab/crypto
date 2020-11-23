@@ -9,6 +9,6 @@ import { CoinrankingapiService } from './api-services/coinrankingapi.service';
 export class AppComponent {
   title = 'crypto';
   constructor( private coinrankingapi: CoinrankingapiService ) { 
-    this.coinrankingapi.getData();
+    // this.coinrankingapi.getData();
   }
 }
