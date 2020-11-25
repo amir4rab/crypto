@@ -1,4 +1,4 @@
-<div class="slider">
+<div class="slider" [ngClass]="loading === false ? 'active' : 'deactive'">
     <app-slider 
         [settings]="{
             title: 'Top cryptos',
@@ -7,23 +7,24 @@
         [coinDataArr]= "topCoinsDataArr"
     ></app-slider>
 </div>
-<div class="loaded" *ngIf="pageLoaded">
-    <div class="slider">
-        <app-slider 
-        [settings]="{
-            title: 'Top gainers',
-            subTitle: 'See all'
-        }"
-        [coinDataArr]= "topGainersCoinsArr"
+<div class="slider" [ngClass]="loading === false ? 'active' : 'deactive'">
+    <app-slider 
+    [settings]="{
+        title: 'Top gainers',
+        subTitle: 'See all'
+    }"
+    [coinDataArr]= "topGainersCoinsArr"
+></app-slider>
+</div>
+<div class="slider" [ngClass]="loading === false ? 'active' : 'deactive'">
+    <app-slider 
+    [settings]="{
+        title: 'Top losers',
+        subTitle: 'See all'
+    }"
+    [coinDataArr]= "topLosersCoinsArr"
     ></app-slider>
-    </div>
-    <div class="slider">
-        <app-slider 
-        [settings]="{
-            title: 'Top losers',
-            subTitle: 'See all'
-        }"
-        [coinDataArr]= "topLosersCoinsArr"
-        ></app-slider>
-    </div>
+</div>
+<div class="loading-display" [ngClass]="loading === true ? 'active' : 'deactive'">
+    <app-loading></app-loading>
 </div>

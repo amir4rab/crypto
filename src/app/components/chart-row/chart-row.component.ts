@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { coinData } from 'src/app/types/CoinData.type';
 import { ChartGenService } from '../../utilities-services/chart-gen.service';
 
@@ -9,6 +9,7 @@ import { ChartGenService } from '../../utilities-services/chart-gen.service';
 })
 export class ChartRowComponent implements OnInit, AfterViewInit {
   @Input() coinData: coinData;
+  @Output() activeOverlay = new EventEmitter<coinData>();
 
   @ViewChild('canvasEl') canvasEl : ElementRef;
   
@@ -18,5 +19,9 @@ export class ChartRowComponent implements OnInit, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.chartGen.initChart( this.canvasEl.nativeElement , this.chartGen.strArrToNumArr(this.coinData.history) , this.coinData.change );
+  }
+
+  titleClicked(): void{
+    this.activeOverlay.emit(this.coinData);
   }
 }

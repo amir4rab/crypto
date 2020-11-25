@@ -1,6 +1,6 @@
 <div class="chart-row">
     <div class="chart-row__left">
-        <img [src]="coinData.iconUrl" alt="">
+        <img [src]="coinData.iconUrl" (click)="titleClicked()">
         <div class="details">
             <div class="details__main" [ngClass]=" coinData.name.length < 8 ? '-' : coinData.name.length < 15 ? 'mid' : 'long' ">
                 {{coinData.name}}

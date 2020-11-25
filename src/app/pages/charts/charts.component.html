@@ -1,10 +1,26 @@
-<div class="wrap" [ngClass]="loading === false ? 'active' : 'deactive'">
+<div class="title" [class]="!loading && !overlay ? 'active' : 'deactive'">
+    <div class="boxes">
+        <div class="box">
+            24h
+        </div>
+        <div class="box">
+            Euro
+        </div>
+    </div>
+    <a [routerLink]="['/settings']">
+        <img src="../../../assets/icons/Settings.svg" alt="">
+    </a>
+</div>
+<div class="wrap" [ngClass]=" !loading && !overlay ? 'active' : 'deactive'">
     <div class="chart-row" *ngFor="let coinData of coinDataArrRef">
-        <app-chart-row [coinData]="coinData"></app-chart-row>
+        <app-chart-row [coinData]="coinData" (activeOverlay)="overlayManager(true , $event)"></app-chart-row>
     </div>
 </div>
-<div class="loading" [ngClass]="loading === true ? 'active' : 'deactive'">
+<div class="loading-display" [ngClass]="loading === true ? 'active' : 'deactive'">
     <div>
         <app-loading></app-loading>
     </div>
+</div>
+<div class="overlay" *ngIf="overlay">
+    <app-chart-screen [coinData]="overlayCoin"></app-chart-screen>
 </div>

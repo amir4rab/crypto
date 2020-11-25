@@ -1,5 +1,12 @@
+@import '../../../style/style.scss';
 .slider{
     &:not(:last-child){
         padding-bottom: 2rem;
+    }
+    &.active{
+        display: block;
+    }
+    &.deactive{
+        display: none;
     }
 }

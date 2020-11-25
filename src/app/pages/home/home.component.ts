@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { CoinrankingapiService } from 'src/app/api-services/coinrankingapi.service';
 import { coinData } from 'src/app/types/CoinData.type';
 import { environment } from '../../../environments/environment';
@@ -8,21 +8,28 @@ import { environment } from '../../../environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterContentInit {
   coinsArr: coinData[] = [];
   topCoinsDataArr: coinData[] = [];
   sortedCoinsArr: coinData[] = [];
   topGainersCoinsArr: coinData[] = [];
   topLosersCoinsArr: coinData[] = [];
 
-  pageLoaded: boolean = false;
+  loading: boolean = true;
 
-  constructor( private coinrankingapi: CoinrankingapiService ) {  }
+  timeSpent: Date;
+
+  constructor( private coinrankingapi: CoinrankingapiService ) { 
+    this.timeSpent = new Date();
+  }
   
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  ngAfterContentInit(): void { 
     this.coinrankingapi.getData().subscribe( res => {
       this.coinsArr = res.data.coins;
       this.initCharts();
+      this.loading = false;
     });
   }
 
@@ -39,6 +46,5 @@ export class HomeComponent implements OnInit {
   
     this.topGainersCoinsArr = this.sortedCoinsArr.slice(0, 10);
     this.topLosersCoinsArr = this.sortedCoinsArr.slice(this.sortedCoinsArr.length - 10, this.sortedCoinsArr.length);
-    this.pageLoaded = true;
   }
 }

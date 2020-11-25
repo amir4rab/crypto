@@ -12,7 +12,8 @@ export class StateManagerService {
 
   private _currency: currency = {
     symbol: '€',
-    name: 'EUR'
+    name: 'EUR',
+    fName: 'Euro'
   };
 
   historySpan: 'daily' | 'weekly' | 'monthly' = 'daily';
@@ -25,8 +26,12 @@ export class StateManagerService {
     return this._currency.symbol;
   };
 
-  get currencyName  ( ) : string {
+  get currencyName ( ) : string {
     return this._currency.name;
+  };
+
+  get currencyfName ( ) : string {
+    return this._currency.fName;
   };
 
   set currency ( currencyName : string ) {
@@ -34,21 +39,24 @@ export class StateManagerService {
       case 'EUR': {
         this._currency = {
           symbol: '€',
-          name: 'EUR'
+          name: 'EUR',
+          fName: 'Euro'
         };
         break;
       } 
       case 'USD': {
         this._currency = {
           symbol: '$',
-          name: 'USD'
+          name: 'USD',
+          fName: 'Us dollar'
         };
         break;
       } 
       case 'GBP': {
         this._currency = {
           symbol: '£',
-          name: 'GBP'
+          name: 'GBP',
+          fName: 'Great britain pound'
         };
         break;
       } 

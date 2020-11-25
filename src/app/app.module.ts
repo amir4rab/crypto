@@ -13,7 +13,6 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ChartRowComponent } from './components/chart-row/chart-row.component';
 import { ChartScreenComponent } from './components/chart-screen/chart-screen.component';
-import { PriceShortenerDirective } from './directives/price-shortener.directive';
 import { PriceShortenerPipe } from './pipes/price-shortener.pipe';
 import { CurrencySymbolsPipe } from './pipes/currency-symbols.pipe';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -30,7 +29,6 @@ import { LoadingComponent } from './components/loading/loading.component';
     AboutComponent,
     ChartRowComponent,
     ChartScreenComponent,
-    PriceShortenerDirective,
     PriceShortenerPipe,
     CurrencySymbolsPipe,
     LoadingComponent

@@ -1,11 +1,14 @@
 export type currency =
 {
     symbol: '$',
-    name: 'USD'
+    name: 'USD',
+    fName: 'Us dollar'
 } | {
     symbol: '€',
-    name: 'EUR'
+    name: 'EUR',
+    fName: 'Euro'
 } | {
     symbol: '£',
-    name: 'GBP'
+    name: 'GBP',
+    fName: 'Great britain pound'
 }
