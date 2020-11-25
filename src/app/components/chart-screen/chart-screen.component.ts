@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { coinData } from 'src/app/types/CoinData.type';
+import { ChartGenService } from 'src/app/utilities-services/chart-gen.service';
 
 @Component({
   selector: 'app-chart-screen',
@@ -8,8 +9,11 @@ import { coinData } from 'src/app/types/CoinData.type';
 })
 export class ChartScreenComponent implements OnInit {
   @Input() coinData: coinData;
+  @Output() closeOverley = new EventEmitter<null>();
 
-  constructor() { }
+  @ViewChild('canvasEl') canvasEl : ElementRef;
+  
+  constructor( private chartGen: ChartGenService ) { }
 
   ngOnInit(): void {
   }
@@ -38,11 +42,27 @@ export class ChartScreenComponent implements OnInit {
         outPut = 'website';
         break;
       }
+      case 'facebook':{
+        outPut = 'facebook';
+        break;
+      }
+      case 'twitter':{
+        outPut = 'twitter';
+        break;
+      }
       default: {
         break
       }
     }
 
     return `../../../assets/icons/${outPut}.svg`
+  }
+
+  closeOverleyFn(): void {
+    this.closeOverley.emit();
+  }
+
+  ngAfterViewInit(): void {
+    this.chartGen.initChart( this.canvasEl.nativeElement, this.chartGen.strArrToNumArr(this.coinData.history) , this.coinData.change );
   }
 }

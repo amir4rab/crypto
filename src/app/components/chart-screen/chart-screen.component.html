@@ -1,30 +1,31 @@
 <div class="header">
-    <div class="header__back-btn">
-        <img src="../../../assets/icons/Back-btn.svg" alt="">
-    </div>
+    <a class="header__back-btn" (click)="closeOverleyFn()">
+        <img src="../../../assets/icons/back-btn.svg" alt="">
+    </a>
     <div class="header__title">
         {{coinData.name}}
     </div>
 </div>
 <div class="chart">
     <div class="chart__inner">
-        <canvas #chart></canvas>
+        <canvas #canvasEl></canvas>
     </div>
 </div>
 <div class="detials">
     <div class="detials__title">Price history</div>
     <div class="detials__content">
-        <div class="div">Price: {{ coinData.price | priceShortener | currencySymbols }}</div>
-        <div class="div">Highest: {{ coinData.allTimeHigh.price | priceShortener | currencySymbols }}</div>
-        <div class="div">Circulating supply: {{ coinData.circulatingSupply | priceShortener | currencySymbols }}</div>
-        <div class="div">First Seen: {{ coinData.firstSeen | date }}</div>
-        <div class="div">Market cap: {{ coinData.marketCap | priceShortener | currencySymbols }}</div>
-        <div class="div">Market cap: {{ coinData.marketCap | priceShortener | currencySymbols }}</div>
+        <div>Price: {{ coinData.price | priceShortener | currencySymbols }}</div>
+        <div>Highest: {{ coinData.allTimeHigh.price | priceShortener | currencySymbols }}</div>
+        <div>Circulating supply: {{ coinData.circulatingSupply | priceShortener | currencySymbols }}</div>
+        <div>First Seen: {{ coinData.firstSeen | date }}</div>
+        <div>Market cap: {{ coinData.marketCap | priceShortener | currencySymbols }}</div>
+        <div>Market cap: {{ coinData.marketCap | priceShortener | currencySymbols }}</div>
     </div>
     <div class="detials__title">Socilas</div>
     <div class="detials__img-list">
         <a *ngFor="let social of coinData.links" [href]="social.url" target="_">
             <img [src]="getImgUrl(social.type)" alt="">
+            <label>{{social.type}}</label>
         </a>
     </div>
 </div>

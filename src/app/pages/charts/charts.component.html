@@ -22,5 +22,5 @@
     </div>
 </div>
 <div class="overlay" *ngIf="overlay">
-    <app-chart-screen [coinData]="overlayCoin"></app-chart-screen>
+    <app-chart-screen [coinData]="overlayCoin" (closeOverley)="overlayManager(false)"></app-chart-screen>
 </div>
