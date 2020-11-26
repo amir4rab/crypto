@@ -9,7 +9,7 @@ export class GlobalDataManagerService {
 
   //**  cashing methods : start  **//
 
-  private _coinData: {
+  coinDataEur: {
     daily: CoinrankingapiRes,
     weekly: CoinrankingapiRes,
     monthly: CoinrankingapiRes,
@@ -18,39 +18,28 @@ export class GlobalDataManagerService {
     weekly: null,
     monthly: null
   };
-
-  set dailyCoinData(data: CoinrankingapiRes) {
-    this._coinData.daily = data;
-  }
-
-  set weeklyCoinData(data: CoinrankingapiRes) {
-    this._coinData.weekly = data;
-  }
-
-  set monthlyCoinData(data: CoinrankingapiRes) {
-    this._coinData.monthly = data;
-  }
-
-  get dailyCoinData(): CoinrankingapiRes {
-    return this._coinData.daily;
-  }
-
-  get weeklyCoinData(): CoinrankingapiRes {
-    return this._coinData.weekly;
-  }
-
-  get monthlyCoinData(): CoinrankingapiRes {
-    return this._coinData.monthly;
-  }
-
-  get coinDataObj(): {
+  
+  coinDataUsd: {
     daily: CoinrankingapiRes,
     weekly: CoinrankingapiRes,
     monthly: CoinrankingapiRes,
-  } {
-    return this._coinData;
-  }
-
+  } = {
+    daily: null,
+    weekly: null,
+    monthly: null
+  };
+  
+  coinDataGbp: {
+    daily: CoinrankingapiRes,
+    weekly: CoinrankingapiRes,
+    monthly: CoinrankingapiRes,
+  } = {
+    daily: null,
+    weekly: null,
+    monthly: null
+  };
+  
+  
    //**  cashing methods : end  **//
 
   constructor ( ) { }

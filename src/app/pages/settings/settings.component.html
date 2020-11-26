@@ -1,1 +1,14 @@
-<p>settings works!</p>
+<div class="select-group">
+    <div class="title">
+        Currency
+    </div>
+    <select (change)="selectCurrency($event)">
+        <option *ngFor="let curr of currArr" [value]="curr.name" [selected]="activeCurr === curr.name">{{curr.fName}}</option>
+    </select>
+    <div class="title">
+        Charts Time span
+    </div>
+    <select (change)="selectTimeSpan($event)">
+        <option *ngFor="let timeS of timeSArr" [value]="timeS" [selected]="activeTimeS === timeS">{{timeS}}</option>
+    </select>
+</div>

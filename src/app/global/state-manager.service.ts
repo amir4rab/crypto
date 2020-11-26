@@ -76,5 +76,8 @@ export class StateManagerService {
 
   //**  Api methods : end  **//
 
+
+  stateChanged: boolean = true;
+
   constructor() { }
 }
