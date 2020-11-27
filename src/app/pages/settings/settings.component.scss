@@ -1,0 +1,37 @@
+@import '../../../style/style.scss';
+
+.select-group {
+    width: 90vw;
+    margin: 2rem auto;
+    .title {
+        font-weight: 500;
+        font-size: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    select {
+        background: $black-light;
+        color: $white-light;
+        padding: .25rem .75rem;
+        border: none;
+        outline: none;
+    }
+}
+
+@media ( min-width: $bp-1 ) {
+    .select-group {
+        width: 80vw;
+        margin: 2rem auto 5rem auto;
+        .title {
+            font-weight: 500;
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        select {
+            background: $black-light;
+            color: $white-light;
+            padding: .25rem .75rem;
+            border: none;
+            outline: none;
+        }
+    }
+}

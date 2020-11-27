@@ -5,6 +5,8 @@
     <select (change)="selectCurrency($event)">
         <option *ngFor="let curr of currArr" [value]="curr.name" [selected]="activeCurr === curr.name">{{curr.fName}}</option>
     </select>
+</div>
+<div class="select-group">
     <div class="title">
         Charts Time span
     </div>

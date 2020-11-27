@@ -23,6 +23,8 @@
             object-fit: contain;
             max-height: 3rem;
             max-width: 3rem;
+            min-height: 3rem;
+            min-width: 3rem;
         }
         .details{
             width: 35%;
@@ -121,6 +123,8 @@
                 object-fit: contain;
                 max-height: 5rem;
                 max-width: 5rem;
+                min-height: 5rem;
+                min-width: 5rem;
                 height: 5rem;
                 width: 5rem;
             }
@@ -167,8 +171,10 @@
             max-height: 7.5rem;
             .inner{
                 max-height: 5rem !important;
+                min-height: 5rem !important;
                 height: 5rem !important;
                 max-width: 10vw !important;
+                min-width: 10vw !important;
                 width: 10rem !important;
             }
         }

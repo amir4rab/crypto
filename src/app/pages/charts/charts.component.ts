@@ -1,5 +1,6 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { CoinrankingapiService } from 'src/app/api-services/coinrankingapi.service';
+import { StateManagerService } from 'src/app/global/state-manager.service';
 import { coinData } from 'src/app/types/CoinData.type';
 
 @Component({
@@ -15,10 +16,18 @@ export class ChartsComponent implements OnInit, AfterContentInit {
   overlay = false;
   overlayCoin: coinData;
 
+  chartsSettings : {
+    curr: string,
+    history: string
+  } = {
+    curr: null,
+    history: null
+  }
 
-  constructor( private coinrankingapi: CoinrankingapiService ) {  }
+  constructor( private coinrankingapi: CoinrankingapiService, private stateManager: StateManagerService ) {  }
 
   ngOnInit(): void {
+    this.getSettingsData();
   }
   
   ngAfterContentInit(): void {
@@ -55,5 +64,10 @@ export class ChartsComponent implements OnInit, AfterContentInit {
       this.overlayCoin = coinData;
       this.overlay = true;
     }
+  }
+
+  getSettingsData (  ): void {
+    this.chartsSettings.curr = this.stateManager.currencyfName;
+    this.chartsSettings.history = this.stateManager.historySpan;
   }
 }

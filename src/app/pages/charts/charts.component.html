@@ -1,10 +1,10 @@
 <div class="title" [class]="!loading && !overlay ? 'active' : 'deactive'">
     <div class="boxes">
         <div class="box">
-            24h
+            {{chartsSettings.history}}
         </div>
         <div class="box">
-            Euro
+            {{chartsSettings.curr}}
         </div>
     </div>
     <a [routerLink]="['/settings']">
