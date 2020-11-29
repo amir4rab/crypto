@@ -1,7 +1,6 @@
 import { AfterContentInit, Component, OnInit } from '@angular/core';
 import { CoinrankingapiService } from 'src/app/api-services/coinrankingapi.service';
 import { coinData } from 'src/app/types/CoinData.type';
-import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -35,7 +34,9 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   initCharts(): void {
     this.topCoinsDataArr =  this.coinsArr.slice(0, 10) as coinData[];
-    this.sortedCoinsArr = (environment.allCoinData.sort(function(a, b){
+    const tempArr: coinData[] = []; 
+    tempArr.push(...this.coinsArr);
+    this.sortedCoinsArr = (tempArr.sort(function(a, b){
       if ( a.change > b.change ) {
         return -1;
       } else if ( a.change < b.change ) {
@@ -45,6 +46,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
     }) as coinData[]);
   
     this.topGainersCoinsArr = this.sortedCoinsArr.slice(0, 10);
-    this.topLosersCoinsArr = this.sortedCoinsArr.slice(this.sortedCoinsArr.length - 10, this.sortedCoinsArr.length);
+    this.topLosersCoinsArr = (this.sortedCoinsArr.slice(this.sortedCoinsArr.length - 10, this.sortedCoinsArr.length)).reverse();;
+    // this.topLosersCoinsArr = this.sortedCoinsArr.slice(this.sortedCoinsArr.length - 10, this.sortedCoinsArr.length);
   }
 }
