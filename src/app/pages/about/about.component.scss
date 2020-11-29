@@ -1,0 +1,32 @@
+@import '../../../style/style.scss';
+
+.about-box{
+
+    width: 90vw;
+    margin: 1rem auto 2rem auto;
+
+    &__title{
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding-bottom: .5rem;
+    }
+
+    &__text{
+        a{
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+            line-height: 2rem;
+        }
+    }
+}
+
+@media ( min-width: $bp-1 ) {
+    .about-box{
+        width: 80vw;
+        &__title{
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+    }
+}
